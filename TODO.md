@@ -1,8 +1,8 @@
 ##TODO:
 
-- [ ] read the pdf document
-- [ ] extract the data from the pdf document
-- [ ] preprocess the extracted text data
+- [x] read the pdf document
+- [x] extract the data from the pdf document
+- [x] preprocess the extracted text data
 - [ ] implement a question-answering model or API
 - [ ] generate questions based on the PDF content
 - [ ] generate answers using the question-answering model
