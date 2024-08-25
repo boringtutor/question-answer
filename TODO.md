@@ -14,4 +14,11 @@
 
 
 #version 0.2.0
--[]
+-[]store the document in the database
+-[]store the question-answer pairs in the database
+-[] use drizzle orm / prisma orm
+-[] use react-query
+-[] test and refine the Q&A generation process
+-[] implement a review and validation process
+-[] deploy the application
+
