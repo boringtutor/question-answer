@@ -1,0 +1,1 @@
+export const extractPdf = 'http://localhost:3000/api/extractPdf'
