@@ -1,9 +1,11 @@
+import { generateSummary } from "@/utils/helpers";
+import { generateSummaryPrompt } from "@/utils/prompt";
 import { PdfReader } from "pdfreader";
 
-export default function parsePdf(dataBuffer: Buffer): Promise<string[]> {
+export default function parsePdf(dataBuffer: Buffer): Promise<string> {
   return new Promise((resolve, reject) => {
     const reader = new PdfReader();
-    const data: string[] = [];
+    let data:string= "";
 
     reader.parseBuffer(dataBuffer, (err, item) => {
       if (err) {
@@ -23,8 +25,13 @@ export default function parsePdf(dataBuffer: Buffer): Promise<string[]> {
       }
 
       if (item.text) {
-        data.push(item.text);
+        data+=item.text;
       }
     });
   });
+}
+
+export async function getSummaryFromOpenAi(text:string){
+    const summary = await generateSummary(text);
+    return summary;
 }

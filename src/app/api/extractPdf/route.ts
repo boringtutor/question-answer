@@ -18,9 +18,9 @@ export async function GET() {
     console.log('Data buffer length:', dataBuffer.length);
 
     try {
-      const data: string[] = [];
+      
   
-      const result:Array<string> =await parsePdf(dataBuffer);
+      const result:string =await parsePdf(dataBuffer);
       if(result.length>0){
         return NextResponse.json({ content: result });
       }
