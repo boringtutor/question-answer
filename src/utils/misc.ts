@@ -76,3 +76,55 @@ The text does not provide a timeline of events or processes.
 
 7. Conclusions or Implications:
 The text introduces the concept of data structures and their interfaces, emphasizing the distinction between the two. It also mentions that the course will focus on two main interfaces, Sequence and Set. The understanding of these concepts is crucial for anyone studying algorithms or computer science in general.`
+
+
+export const MOCK_QUESTIONS = {
+  numberOfquestion: 5,
+  answer:[
+    {
+    answer1: "Data structures and their interfaces",
+    answer2: "Sorting algorithms",  
+    answer3: "Machine learning techniques",
+    answer4: "Database management",
+    correctAnswer: "a",
+    explanation: "The text states that the lecture focuses on data structures and their interfaces.",
+    question: "What is the primary focus of the second lecture in the 'Introduction to Algorithms: 6.006' course?"
+  },
+  {
+    answer1: "Erik Demaine, Jason Ku, and Justin Solomon",
+    answer2: "John Doe, Jane Smith, and Alan Turing",
+    answer3: "Ada Lovelace, Grace Hopper, and Tim Berners-Lee",
+    answer4: "Linus Torvalds, Bill Gates, and Steve Jobs",
+    correctAnswer: "a",
+    explanation: "The text mentions that the instructors are Erik Demaine, Jason Ku, and Justin Solomon.",
+    question: "Who are the instructors of the 'Introduction to Algorithms: 6.006' course?"
+  },
+  {
+    answer1: "A physical component of a computer",
+    answer2: "A specification of what operations are supported",
+    answer3: "A type of programming language",
+    answer4: "A hardware device",
+    correctAnswer: "b",
+    explanation: "The text defines an interface as a specification of what operations are supported.",
+    question: "What is an interface in the context of data structures?"
+  },
+  {
+    answer1: "Sequence and Set",
+    answer2: "List and Map",
+    answer3: "Tree and Graph",
+    answer4: "Queue and Stack",
+    correctAnswer: "a",
+    explanation: "The text states that Sequence and Set are the two main interfaces to be covered in the class.",
+    question: "Which two main interfaces will be covered in the course?"
+  },
+  {
+    answer1: "A way to store data, with algorithms that support operations on the data",
+    answer2: "A type of computer hardware",
+    answer3: "A programming language",
+    answer4: "A network protocol",
+    correctAnswer: "a",
+    explanation: "The text describes a data structure as a way to store data, with algorithms that support operations on the data.",
+    question: "How does the text describe a data structure?"
+  }
+  ]
+}

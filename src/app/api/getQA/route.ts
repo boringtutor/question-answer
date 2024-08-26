@@ -1,4 +1,5 @@
 import { generateQuestionAnswer, generateQuestionAnswerWithZod, questionAnswerSchemaType } from "@/utils/helpers";
+import { MOCK_QUESTIONS } from "@/utils/misc";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request:NextRequest){
@@ -7,7 +8,8 @@ export async function POST(request:NextRequest){
     
     try{
 
-        const questionAnswer = await generateQuestionAnswerWithZod(summary);
+        // const questionAnswer = await generateQuestionAnswerWithZod(summary);
+        const questionAnswer = MOCK_QUESTIONS;
         if (!questionAnswer) {
             return NextResponse.json({ error: "Failed to generate question answer" }, { status: 500 });
         }

@@ -14,6 +14,7 @@
 
 
 #version 0.2.0
+- [x] setup the database 
 - [ ] store the document in the database
 - [ ] store the question-answer pairs in the database
 - [ ] use drizzle orm / prisma orm

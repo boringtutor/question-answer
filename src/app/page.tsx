@@ -3,7 +3,7 @@
 import { extractPdf, getQA, getSummary } from '@/const/api';
 import { questionAnswerSchemaType } from '@/utils/helpers';
 
-import { fetchSummary, MOCK_SUMMARY } from '@/utils/misc';
+import { fetchSummary, MOCK_QUESTIONS, MOCK_SUMMARY } from '@/utils/misc';
 import { Dispatch, SetStateAction, useState } from 'react';
 
 
@@ -71,13 +71,14 @@ export default function Home() {
   const [pdfContent, setPdfContent] = useState('');
   const [questionAnswer, setQuestionAnswer] = useState<questionAnswerSchemaType | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  
 
   return (
-    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-primary py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">PDF Question Generator</h1>
+        <h1 className="text-3xl font-bold text-center mb-8 text-white">PDF Question Generator</h1>
         <button 
-          className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 mb-8"
+          className="w-full bg-primary-green hover:bg-primary-green text-secondary-mid-gray font-bold py-3 px-4 rounded-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-opacity-50 mb-8"
           onClick={() => getPdfContent({setState: setPdfContent, setQuestionAnswer: setQuestionAnswer, setIsLoading})}
           disabled={isLoading}
         >
@@ -86,24 +87,24 @@ export default function Home() {
         
         {isLoading && (
           <div className="flex justify-center items-center mb-8">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-green"></div>
           </div>
         )}
 
         {!isLoading && questionAnswer && (
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-center mb-4 text-gray-700">Generated Questions</h2>
+            <h2 className="text-2xl font-semibold text-center mb-6 text-white">Generated Questions</h2>
             {questionAnswer.answer.map((answer, index) => (
-              <div key={index} className="bg-white shadow-md rounded-lg p-6 transition duration-300 ease-in-out hover:shadow-lg">
-                <p className="text-xl font-semibold mb-4 text-gray-800">{answer.question}</p>
+              <div key={index} className="bg-secondary-background shadow-md shadow-secondary-light-gray rounded-lg p-6 transition duration-300 ease-in-out hover:shadow-lg">
+                <p className="text-xl font-semibold mb-4 text-secondary-dark-gray">{answer.question}</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                  <p className="bg-gray-100 p-3 rounded text-gray-700 hover:bg-gray-200 transition duration-300">{answer.answer1}</p>
-                  <p className="bg-gray-100 p-3 rounded text-gray-700 hover:bg-gray-200 transition duration-300">{answer.answer2}</p>
-                  <p className="bg-gray-100 p-3 rounded text-gray-700 hover:bg-gray-200 transition duration-300">{answer.answer3}</p>
-                  <p className="bg-gray-100 p-3 rounded text-gray-700 hover:bg-gray-200 transition duration-300">{answer.answer4}</p>
+                  <p className="bg-secondary-blue p-3 rounded text-secondary-dark-gray hover:bg-secondary-mid-gray transition duration-300">{answer.answer1}</p>
+                  <p className="bg-secondary-light-gray p-3 rounded text-secondary-dark-gray hover:bg-secondary-mid-gray transition duration-300">{answer.answer2}</p>
+                  <p className="bg-secondary-light-gray p-3 rounded text-secondary-dark-gray hover:bg-secondary-mid-gray transition duration-300">{answer.answer3}</p>
+                  <p className="bg-secondary-light-gray p-3 rounded text-secondary-dark-gray hover:bg-secondary-mid-gray transition duration-300">{answer.answer4}</p>
                 </div>
-                <p className="font-medium text-green-600 mb-2">Correct Answer: {answer.correctAnswer}</p>
-                <p className="text-gray-600 italic">{answer.explanation}</p>
+                <p className="font-medium text-primary-green mb-2">Correct Answer: {answer.correctAnswer}</p>
+                <p className="text-secondary-mid-gray italic">{answer.explanation}</p>
               </div>
             ))}
           </div>
