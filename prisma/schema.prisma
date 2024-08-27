@@ -8,10 +8,62 @@ datasource db {
 }
 
 model User {
+  id        String     @id @default(cuid())
+  email     String     @unique
+  username  String     @unique
+  fullName  String?
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  notes     Note[]
+
+  @@index([email, username])
+}
+
+model Note {
+  id            String         @id @default(cuid())
+  title         String
+  content       String
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  authorId      String
+  author        User           @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  quizCollection QuizCollection?
+
+  @@index([authorId])
+}
+
+model QuizCollection {
   id        String   @id @default(cuid())
-  email     String   @unique
-  username  String   @unique
-  name      String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  noteId    String   @unique
+  note      Note     @relation(fields: [noteId], references: [id], onDelete: Cascade)
+  quizItems QuizItem[]
+
+  @@index([noteId])
+}
+
+model QuizItem {
+  id             String         @id @default(cuid())
+  questionText   String
+  correctAnswer  String
+  explanation    String
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  collectionId   String
+  quizCollection QuizCollection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  answerOptions  AnswerOption[]
+
+  @@index([collectionId])
+}
+
+model AnswerOption {
+  id           String   @id @default(cuid())
+  optionText   String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  quizItemId   String
+  quizItem     QuizItem @relation(fields: [quizItemId], references: [id], onDelete: Cascade)
+
+  @@index([quizItemId])
 }

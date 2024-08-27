@@ -16,6 +16,7 @@
 #version 0.2.0
 - [x] setup the database 
 - [ ] setup all the necessary models in the database
+
 - [ ] setup the authentication system
 - [ ] use react-query
 - [ ] refactor api
